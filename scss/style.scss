@@ -1,48 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-
-}
-
-html {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-
-}
-
-@mixin VIEW-MORE-BTN($BorderColor, $TextColor) {
-  color: $TextColor;
-  border-color: $BorderColor;
-  border-radius: 31px;
-  background-color: $BorderColor;
-  align-self: flex-start;
-  width: 160px;
-  height: 62px;
-  text-align: center;
-  line-height: 62px;
-  font-size: 14px;
-}
+@import 'Common.scss';
+@import 'Variable.scss';
 
 //-----------------------------------------
 header {
   position: absolute;
   left: 0;
   right: 0;
-  border: 1px solid #bd1a1a;
   display: flex;
   padding: 20px 0;
-  z-index: 99999999;
+  z-index: 1000;
 
   .logo {
     padding-left: 30px;
@@ -141,6 +107,24 @@ header {
   }
 }
 
+.allmenuwrap {
+ 
+
+  .menu {
+    .menu-title {
+
+    }
+
+    ul {
+
+      li {
+
+      }
+    }
+  }
+}
+
+
 .main-visual {
   video {
     // 스타일
@@ -171,7 +155,6 @@ header {
 }
 
 .sec2 {
-  width: 100vw;
 
   .bg {
     position: absolute;
@@ -191,7 +174,6 @@ header {
   }
 
   .swiper {
-    border: 1px solid #a52e2e;
 
     .swiper-pagination {
       position: absolute;
@@ -201,7 +183,7 @@ header {
       display: flex;
       flex-direction: column;
       gap: 10px; // 점 사이 간격
-       pointer-events: none; 
+      pointer-events: none;
     }
 
 
@@ -259,7 +241,7 @@ header {
           }
 
           .moreBtn {
-            @include VIEW-MORE-BTN(red, white) // 스타일
+            @include VIEW-MORE-BTN(red, white, red) // 스타일
           }
         }
       }
@@ -272,97 +254,200 @@ header {
 }
 
 .sec3 {
-  .Left {
+  .inner {
+    display: flex;
 
-    h2,
-    h3 {
-      // 스타일
+    .Left {
+      width: 45vw;
+
+      h2,
+      h3 {
+        // 스타일
+      }
+
+      h2 {
+        font-size: 26px;
+        color: #ec1c24;
+        font-weight: bold;
+      }
+
+      h3 {
+        margin: 50px 0;
+        font-size: 60px;
+        color: #111;
+        font-weight: bold;
+        line-height: 1.2em;
+      }
+
+      .moreBtn {
+        // 스타일
+        @include VIEW-MORE-BTN(#333, black, white) // 스타일
+      }
     }
 
-    .moreBtn {
-      // 스타일
-    }
-  }
+    .Right {
+      width: 55vw;
+      display: flex;
 
-  .Right {
-    ul {
-      li {
-        img {
-          // 스타일
-        }
+      .L_List {
+        margin-right: 100px;
+      }
 
-        h2,
-        p {
-          // 스타일
+      .R_List {
+        margin-top: 300px;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          max-width: 430px;
+          margin-bottom: 70px;
+
+          img {
+            // 스타일
+            translate: none;
+            rotate: none;
+            scale: none;
+            transform: scale(1);
+          }
+
+          h2 {
+            font-size: 30px;
+            color: #000;
+            font-weight: bold;
+            margin: 30px 0 15px;
+          }
+
+          p {
+            // 스타일
+            font-size: 18px;
+            color: #666;
+          }
+
         }
       }
     }
   }
+
 }
 
 .sec4 {
+  height: 900px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0);
+
   .bg {
+
+
     img {
-      // 스타일
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
     }
   }
 
-  span {
-    // 스타일
-  }
 
-  strong {
-    // 스타일
-  }
 
   .textWarps {
-    span {
-      // 스타일
+    width: 90%;
+    margin: 100px auto;
+    font-size: 9vw;
+    color: #fff;
+    font-weight: 500;
+    line-height: 0.9em;
+
+    span:first-of-type {}
+
+    span:last-of-type {
+      font-size: 42px;
+      font-weight: 600;
     }
   }
 }
 
 .sec5 {
+  padding: 235px 0px 0px;
+  height: 160vh;
+  background: url(/img/sec5_bg1.jpg) no-repeat center 700px;
+  background-color: white;
 
-  h2,
-  h3 {
-    // 스타일
+  .textWarps {
+    text-align: center;
+    padding: 0px 5% 70px;
+
+    h2 {
+      color: $mainColor;
+
+    }
+
+    h3 {
+      // 스타일
+      margin: 40px 0 0;
+      font-size: 60px;
+      color: #111;
+      font-weight: bold;
+      line-height: 1.2em;
+    }
   }
+
+
 
   .contant-warps {
     .imgViewer {
-      // 스타일
-    }
+      border-radius: 15px;
+      width: 430px;
+      height: 547px;
+      //overflow: hidden;
+      margin: auto;
 
-    ul {
-      li {
-        .title {
-          // 스타일
-        }
+      ul {
+        display: flex;
+        gap: 10px;
+        transform: translate(-100%, 10px);//-100%마다 다음 그림
 
-        p {
-          // 스타일
-        }
-
-        .moreBtn {
-          // 스타일
-        }
+        li {}
       }
     }
 
+
+
     .textViewer {
+
+      color: white;
+      text-align: center;
+
       ul {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto; // 넘치면 가로 스크롤
+        scroll-behavior: smooth; // 스크롤 부드럽게
+        padding-left: calc(50% - 695px / 2); // li의 width: 695px
+        padding-right: calc(50% - 695px / 2); // li의 width: 695px
+
         li {
+          flex-shrink: 0;
+          padding: 0 50px;
+          width: 695px;
+
           .title {
-            // 스타일
+            margin-top: 20px;
+            font-weight: 800;
+            font-size: 3.6vw;
+            margin-top: 20px;
           }
 
           p {
-            // 스타일
+            margin: 30px 0px 20px;
           }
 
           .moreBtn {
+            margin: auto;
             // 스타일
+            @include VIEW-MORE-BTN(rgb(255, 255, 255), white, rgba(255, 255, 255, 0)) // 스타일
           }
         }
       }
@@ -370,42 +455,90 @@ header {
   }
 }
 
-.sce6 {
+.sec6 {
+  display: flex;
+  padding: 175px 10%;
+
   .Left {
+    width: 50vw;
+
     h2 {
       // 스타일
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    h3 {
+      margin: 40px 0 35px;
+      font-size: 60px;
+      color: #111;
+      font-weight: bold;
+      line-height: 1.2em;
     }
 
     a.moreBtn {
       // 스타일
+      @include VIEW-MORE-BTN(black, black, white) // 스타일
     }
   }
 
   .Right {
+    width: 50vw;
+
     ul {
       li {
+
+        &:nth-child(1) a {
+          border-top: 1px solid #b2b2b2;
+        }
+
         a {
+          padding: 35px 0;
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #b2b2b2;
+
           .date {
+            color: #7f7f7f;
+            display: flex;
+            flex-direction: column;
+
             .day {
-              // 스타일
+              font-size: 56px;
+              line-height: 1em;
+              text-shadow: 1px 1px 0 #7f7f7f, -1px 1px 0 #7f7f7f, -1px -1px 0 #7f7f7f, 1px -1px 0 #7f7f7f;
+              color: #fff;
             }
 
-            .ym {
-              // 스타일
-            }
+            .ym {}
           }
 
           .cate {
-            // 스타일
+            font-size: 17px;
+            margin: 0 30px;
+            color: $mainColor;
           }
 
           .texts {
+            width: 90%;
+            min-width: 0;
+            overflow: hidden;
+
             .title {
               // 스타일
+              font-size: 24px;
             }
 
             .text {
-              // 스타일
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: block;
+              width: 100%;
+
+              margin-top: 10px;
+              font-size: 18px;
+              color: #555;
             }
           }
         }
@@ -415,33 +548,68 @@ header {
 }
 
 footer {
-  .logo {
-    img {
-      // 스타일
-    }
-  }
+  background-color: #f6f6f6;
+  padding: 20px 5%;
 
-  .info {
-    div {
-      // 스타일
-    }
+  .footer-warps {
+    color: #555;
+    padding: 40px 0;
+    line-height: 1.7em;
+    display: flex;
+    border-top: 1px solid #555;
 
-    dl {
-      dt {
-        // 스타일
-      }
+    .logo {
+      flex: 1;
 
-      dd {
+      img {
         // 스타일
       }
     }
 
-    .bar {
-      // 스타일
-    }
-  }
+    .info {
+      flex: 6;
 
-  .copy {
-    // 스타일
+      div {
+        // 스타일
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      dl {
+        dt {
+          display: inline-block;
+          font-size: 17px;
+          color: #555;
+          // 스타일
+        }
+
+        dd {
+          display: inline-block;
+          font-size: 17px;
+          color: #555;
+          // 스타일
+        }
+      }
+
+      .bar {
+        display: inline-block;
+        margin: 0 10px;
+        color: #555;
+
+        // 스타일
+      }
+
+      .info-warps {
+        display: flex;
+      }
+    }
+
+    .copy {
+      flex: 3;
+      align-self: flex-end;
+      text-align: right;
+    }
   }
 }

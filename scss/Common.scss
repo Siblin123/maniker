@@ -1,0 +1,54 @@
+@import 'Variable.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+}
+
+
+@mixin VIEW-MORE-BTN($BorderColor, $TextColor , $BackGroundColor) {
+  display: block;
+  color: $TextColor;
+
+  border: 1px solid $BorderColor;
+  background-color: $BackGroundColor;
+  border-radius: 31px;
+  align-self: flex-start;
+  width: 160px;
+  height: 62px;
+  text-align: center;
+  line-height: 62px;
+  font-size: 14px;
+}
+
+[class*=inner] {
+  padding: 200px 8% 0;
+}
+
+[class*=sec] {
+  background-color: white;
+  width: 100vw;
+}
+
+[class*=title-h2] {
+  color: $mainColor;
+}
