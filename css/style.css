@@ -45,8 +45,8 @@ header {
   padding: 20px 0;
   z-index: 1000;
 }
-header .logo {
-  padding-left: 30px;
+header .logo > a > img {
+  padding-left: 50px;
 }
 header nav {
   -webkit-box-flex: 7;
@@ -73,10 +73,75 @@ header nav ul li a {
 header nav ul li a .active {
   color: black;
 }
+header .navDetail {
+  position: absolute;
+  top: 132px;
+  width: 100vw;
+  max-height: 0px;
+  height: 80px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  overflow: hidden;
+  background-color: #f2f2f2;
+  z-index: -2;
+}
+header .navDetail ul {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+header .navDetail ul li {
+  position: relative;
+}
+header .navDetail ul li a {
+  padding: 15px 25px;
+  font-weight: 500;
+  font-size: 18px;
+}
+header .navDetail ul li a::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #ec1c24;
+  border-radius: 24px;
+  z-index: -1;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+header .navDetail ul li:hover a {
+  color: white;
+}
+header .navDetail ul li:hover a::before {
+  content: "";
+  width: 100%;
+  padding: 5px 10px;
+}
 header .gnb {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
+}
+header .gnb.active i.fa-bars {
+  color: black;
+  position: relative;
+}
+header .gnb.active a.Maniker-Mall {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ffffff;
+  color: white;
+  font-size: 14px;
 }
 header .gnb ul {
   height: 100%;
@@ -109,7 +174,7 @@ header .gnb ul li a {
   padding: 10px 20px;
   border-radius: 21px;
   padding: 10px 15px;
-  color: white;
+  color: rgb(255, 0, 0);
 }
 header .service_var {
   -webkit-box-flex: 1;
@@ -120,6 +185,69 @@ header .service_var {
   top: 20px;
   color: white;
 }
+.allmenuwrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 120px 3.125vw 30px;
+  text-align: center;
+  z-index: 10;
+}
+.allmenuwrap:not(.active) {
+  display: none;
+}
+.allmenuwrap .menu {
+  width: 25%;
+  padding: 0 3.6vw;
+  height: calc((100% - 60px) / 2);
+  border-right: 1px solid #ccc;
+}
+.allmenuwrap .menu:nth-child(3), .allmenuwrap .menu:nth-child(7) {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.allmenuwrap .menu:hover .menu-title {
+  background-color: #ec1c24;
+  color: white;
+}
+.allmenuwrap .menu .menu-title {
+  font-size: 30px;
+  border-radius: 35px;
+  font-weight: 600;
+  height: 70px;
+  line-height: 70px;
+  background-color: #e5e5e5;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.allmenuwrap .menu ul {
+  margin-top: 20px;
+}
+.allmenuwrap .menu ul li {
+  margin-bottom: 9px;
+}
+.allmenuwrap .menu ul li a {
+  font-size: 20px;
+  color: #555555;
+  font-weight: 400;
+}
+.allmenuwrap .menu ul li a:hover {
+  color: #ec1c24;
+}
+
+.main-visual video {
+  position: relative;
+  z-index: 1;
+}
+
 .sec1 {
   height: 100vh;
 }
@@ -130,8 +258,13 @@ header .service_var {
 .sec1 .inline-img {
   display: inline-block;
   vertical-align: middle;
+  max-width: 210px;
+  width: 210px;
+  overflow: hidden;
 }
 .sec1 .inline-img img {
+  -webkit-transform-origin: center;
+          transform-origin: center;
   height: 100px;
   border-radius: 100px;
 }

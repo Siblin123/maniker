@@ -9,14 +9,13 @@ header {
   display: flex;
   padding: 20px 0;
   z-index: 1000;
-
   .logo {
-    padding-left: 30px;
 
-    a {
+    >a {
 
-      img {
+      >img {
         // 스타일
+        padding-left: 50px;
       }
 
 
@@ -45,9 +44,81 @@ header {
         }
       }
     }
+
+
+  }
+
+  .navDetail {
+    position: absolute;
+    top: 132px;
+    width: 100vw;
+    max-height: 0px;
+    height: 80px;
+    transition: .3s;
+    overflow: hidden;
+    background-color: #f2f2f2;
+    z-index: -2;
+    ul {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      li {
+        position: relative;
+
+        a {
+          padding: 15px 25px;
+          font-weight: 500;
+          font-size: 18px;
+
+          &::before {
+            content: "";
+            width: 0%;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $mainColor;
+            border-radius: 24px;
+            z-index: -1;
+           transition: .1s;
+          }
+        }
+
+        &:hover {
+          a {
+            color: white;
+
+            &::before {
+              content: "";
+              width: 100%;
+             padding: 5px 10px;
+            }
+          }
+
+        }
+      }
+    }
   }
 
   .gnb {
+
+    &.active {
+      i.fa-bars {
+        color: black;
+        position: relative;
+      }
+
+      a.Maniker-Mall {
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #ffffff;
+        color: white;
+        font-size: 14px;
+      }
+    }
+
     flex: 2;
 
     ul {
@@ -84,7 +155,7 @@ header {
           border-radius: 21px;
           padding: 10px 15px;
 
-          color: white;
+          color: rgb(255, 0, 0);
 
           i {
             // 스타일
@@ -108,17 +179,67 @@ header {
 }
 
 .allmenuwrap {
- 
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 120px 3.125vw 30px;
+  text-align: center;
+  z-index: 10;
+  &:not(.active) {
+    display: none;
+  }
 
   .menu {
+    width: 25%;
+    padding: 0 3.6vw;
+    height: calc((100% - 60px) / 2);
+    border-right: 1px solid #ccc;
+
+    &:nth-child(3),
+    &:nth-child(7) {
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+    }
+
+    &:hover .menu-title {
+      background-color: $mainColor;
+      color: white;
+    }
+
     .menu-title {
+      font-size: 30px;
+      border-radius: 35px;
+      font-weight: 600;
+      height: 70px;
+      line-height: 70px;
+      background-color: #e5e5e5;
+      transition: .3s;
+
+
 
     }
 
     ul {
+      margin-top: 20px;
 
       li {
+        margin-bottom: 9px;
 
+
+        a {
+          font-size: 20px;
+          color: #555555;
+          font-weight: 400;
+
+          &:hover {
+            color: $mainColor;
+          }
+        }
       }
     }
   }
@@ -128,6 +249,8 @@ header {
 .main-visual {
   video {
     // 스타일
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -144,8 +267,11 @@ header {
   .inline-img {
     display: inline-block;
     vertical-align: middle;
-
+    max-width: 210px;//최대210px
+    width: 210px;
+    overflow: hidden;
     img {
+      transform-origin: center;
       height: 100px;
       border-radius: 100px;
     }
@@ -407,7 +533,7 @@ header {
       ul {
         display: flex;
         gap: 10px;
-        transform: translate(-100%, 10px);//-100%마다 다음 그림
+        transform: translate(-100%, 10px); //-100%마다 다음 그림
 
         li {}
       }
