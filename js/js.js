@@ -47,9 +47,9 @@ header.addEventListener("mouseenter", function () {
 
 function openHeader(li) {
 
-  let allmenuwrap =document.querySelector(".allmenuwrap");
-  if(allmenuwrap.classList.contains("active"))
-      return ;
+  let allmenuwrap = document.querySelector(".allmenuwrap");
+  if (allmenuwrap.classList.contains("active"))
+    return;
 
   let curNav = li.dataset.nav;
   let navDetailUls = navDetail.querySelectorAll('ul');
@@ -106,7 +106,7 @@ hamburger.addEventListener("click", function (e) {
 
   // gnb에 active 클래스 추가/제거 (토글)
   gnb.classList.toggle("active");
-allmenuwrap.classList.toggle("active");
+  allmenuwrap.classList.toggle("active");
   // 햄버거 아이콘을 X 아이콘으로 변경
   if (hamburger.classList.contains("fa-bars")) {
     hamburger.classList.remove("fa-bars");
@@ -119,6 +119,74 @@ allmenuwrap.classList.toggle("active");
 
 //=============================================================
 
+
+
+
+
+
+//===============sec1======================
+document.addEventListener("DOMContentLoaded", () => {
+  const targets = document.querySelectorAll(".fade-up-js");
+
+  targets.forEach(el => {
+    // 초기 스타일 설정
+    el.style.opacity = 0;
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "opacity 1s ease-out, transform 1s ease-out";
+  });
+
+  function handleScrollFade() {
+    targets.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top < windowHeight - 50) {
+        el.style.opacity = 1;
+        el.style.transform = "translateY(0)";
+      }
+    });
+  }
+
+  window.addEventListener("scroll", handleScrollFade);
+  window.addEventListener("load", handleScrollFade);
+});
+
+let inline_img = document.querySelectorAll(".inline-img");
+function blockScrollWhenVisible() {
+
+  const scrollTop = document.documentElement.scrollTop; // ← 여기 변수 이름을 맞추자!
+
+  if (scrollTop > 500) {
+    document.addEventListener("scroll", function () {
+      inline_img.forEach(img => {
+        img.style.width = scrollTop - 500 + "px";
+      });
+    })
+  }
+
+
+
+}
+
+window.addEventListener("scroll", blockScrollWhenVisible);
+
+//=============================
+const imgViewer = document.querySelector(".sec5 .imgViewer");
+const imgViewer_Ul = document.querySelector(".sec5 .imgViewer ul");
+
+
+function checkImgViewerPosition() {
+  const rect = imgViewer.getBoundingClientRect();
+  if (rect.top <= 0) {
+    document.body.classList.add("stop-scrolling");
+    document.documentElement.classList.add("stop-scrolling");
+  }
+
+}
+
+window.addEventListener("scroll", checkImgViewerPosition);
+
+//=================================
 var swiper = new Swiper(".mySwiper1", {
   spaceBetween: 30,
   effect: "fade",
