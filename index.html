@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lenis-prevent>
 
 <head>
   <meta charset="UTF-8">
@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body data-lenis-scroll>
 
   <header>
     <div class="logo">
@@ -185,6 +185,88 @@
       </ul>
 
     </div>
+  </div>
+
+  <div class="allmenu_M">
+    <div class="menu-title_M">회사 소개</div>
+    <div class="menu-List_M active">
+      <ul>
+        <li><a href="">소개</a></li>
+        <li><a href="">CEO 메시지</a></li>
+        <li><a href="">경영철학</a></li>
+        <li><a href="">연혁</a></li>
+        <li><a href="">CI소개</a></li>
+        <li><a href="">오시는 길</a></li>
+        <li><a href="">가족사 소개</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-title_M">사업소개</div>
+    <div class="menu-List_M">
+      <ul>
+        <li><a href="">사업현황</a></li>
+        <li><a href="">사업장 소개</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-title_M">제품소개</div>
+    <div class="menu-List_M">
+      <ul>
+        <li><a href="">브랜드관</a></li>
+        <li><a href="">신선 제품</a></li>
+        <li><a href="">냉동 제품</a></li>
+        <li><a href="">가공 제품</a></li>
+        <li><a href="">선물세트</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-title_M">인재채용</div>
+    <div class="menu-List_M">
+      <ul>
+        <li><a href="">인재상</a></li>
+        <li><a href="">채용 프로세스</a></li>
+        <li><a href="">직무 정보</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-title_M">뉴스룸</div>
+    <div class="menu-List_M">
+      <ul>
+        <li><a href="">마니커 NEWS</a></li>
+        <li><a href="">공지</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-title_M">홍보센터</div>
+    <div class="menu-List_M">
+      <ul>
+        <li><a href="">공고/공시</a></li>
+        <li><a href="">재무정보</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-title_M">ESG경영</div>
+    <div class="menu-List_M">
+      <ul>
+        <li><a href="">Environmental</a></li>
+        <li><a href="">Social</a></li>
+        <li><a href="">Governance</a></li>
+        <li><a href="">지속가능경영보고서</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-title_M">고객센터</div>
+    <div class="menu-List_M">
+      <ul>
+        <li><a href="">고객상담 프로세스</a></li>
+        <li><a href="">FAQ</a></li>
+        <li><a href="">고객의 소리</a></li>
+        <li><a href="">고객만족 활동</a></li>
+        <li><a href=""></a></li>
+      </ul>
+
+    </div>
+  </div>
   </div>
 
   <section class="main-visual">
@@ -368,8 +450,8 @@
   <section class="sec6">
     <div class="Left">
       <h2 class="title-h2">PRESS & NOTICE</h2>
-      <h3>최신 소식과<br>
-        다양한 정보를<br>
+      <h3>최신 소식과<span class="pcSpan"></span>
+        다양한 정보를<span class="pcSpan"></span>
         확인하세요.</h3>
       <a class="moreBtn">● VIEW MORE</a>
     </div>
@@ -485,29 +567,17 @@
 
 
         <div class="info-warps">
-          <dl>
-            <dt>TEL.</dt>
-            <dd>031-281-5300</dd>
-          </dl>
-          <span class="bar">|</span>
-          <dl>
-            <dt>FAX.</dt>
-            <dd>031-868-8667
-            </dd>
-          </dl>
-          <span class="bar">|</span>
-          <dl>
-            <dt>소비자 상담실.
-            </dt>
-            <dd>
-              080-577-1002</dd>
-          </dl>
+          <p><strong>TEL.</strong> 031-281-5300</p>
+          <span class="pcbar"></span>
+          <p><strong>FAX.</strong> 031-868-8667</p>
+          <span class="pcbar"></span>
+          <p><strong>소비자 상담실.</strong> 080-577-1002</p>
         </div>
+        <div class="copy">
+          COPYRIGHTⓒ 2024 MANIKER ALL RIGHT RESERVED.</div>
 
 
       </div>
-      <div class="copy">
-        COPYRIGHTⓒ 2024 MANIKER ALL RIGHT RESERVED.</div>
     </div>
 
   </footer>
@@ -517,9 +587,10 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- js.js -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.14/bundled/lenis.min.js"></script>
+  
   <script src="js/js.js"></script>
-
-
 </body>
 
 </html>

@@ -5,7 +5,8 @@ let header = document.querySelector("header")
 let logo = document.querySelector(".logo >a >img");
 let navli = document.querySelectorAll("nav ul li ")
 let navDetail = document.querySelector(".navDetail")
-
+let ESG = document.querySelector(".ESG")
+let service_var = document.querySelector(".service_var")
 navli.forEach(li => {
   li.addEventListener("mouseenter", function () {
     openHeader(li);
@@ -77,6 +78,8 @@ function openHeader(li) {
 
 }
 
+
+
 function closeHeader() {
 
   navli.forEach(LI => {
@@ -95,27 +98,100 @@ function closeHeader() {
 
 }
 
+//마우스 아래로 내릴시 header가리기 올릴시 header 보이기
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", function () {
+
+  if (window.scrollY === 0) {
+    // 최상단
+    header.style.backgroundColor = "#ffffff00";
+    logo.src = "/img/logo1.png";
+    ESG.style.color="white";
+    ESG.style.borderColor= "white";
+    hamburger.style.color="white";
+    service_var.style.color="white";
+  } else {
+    // 최상단 아님
+    header.style.backgroundColor = "#ffffff";
+    logo.src = "/img/logo2.png";
+    ESG.style.color="black";
+    ESG.style.borderColor= "black";
+    hamburger.style.color="black";
+    service_var.style.color="black";
+  }
+
+
+  let currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY) {
+    header.classList.add("ScrollDown");
+    header.style.maxHeight = "0%";
+  } else if (currentScrollY < lastScrollY) {
+    header.classList.remove("ScrollDown");
+    header.style.maxHeight = "100%";
+  }
+
+  lastScrollY = currentScrollY;
+});
+
+
 // 햄버거 아이콘과 gnb 영역 선택
 let hamburger = document.querySelector(".fa-bars");
+let hamburger_Parent = hamburger.parentElement;
 let gnb = document.querySelector(".gnb");
-let allmenuwrap = document.querySelector(".allmenuwrap");
+let allmenuwrap = document.querySelector(".allmenuwrap");//pc전체메뉴
+let allmenu_M = document.querySelector(".allmenu_M");//모바일 전체메뉴
 
 // 햄버거 아이콘 클릭 시 동작
-hamburger.addEventListener("click", function (e) {
+hamburger_Parent.addEventListener("click", function (e) {
   e.preventDefault(); // 클릭 시 새로고침 방지
 
   // gnb에 active 클래스 추가/제거 (토글)
   gnb.classList.toggle("active");
-  allmenuwrap.classList.toggle("active");
+
+  if (window.innerWidth > 500) {
+    allmenuwrap.classList.toggle("active");
+  } else {
+    allmenu_M.classList.toggle("active");
+  }
+
   // 햄버거 아이콘을 X 아이콘으로 변경
   if (hamburger.classList.contains("fa-bars")) {
     hamburger.classList.remove("fa-bars");
     hamburger.classList.add("fa-xmark");
+    logo.src = "/img/logo2.png";
   } else {
     hamburger.classList.remove("fa-xmark");
     hamburger.classList.add("fa-bars");
+    logo.src = "/img/logo1.png";
   }
 });
+
+
+//모바일 전체 서브메뉴 리스트 열기
+let menu_title_M = document.querySelectorAll(".menu-title_M");
+
+menu_title_M.forEach(function (menu_title) {
+  menu_title.addEventListener("click", function () {
+    let menuList = menu_title.nextElementSibling;
+
+    // 1. 이미 열려 있는 경우 → 닫고 종료
+    if (menuList.classList.contains("active")) {
+      menuList.classList.remove("active");
+      return; // 여기서 종료
+    }
+
+    // 2. 열려있는 다른 모든 메뉴 닫기
+    document.querySelectorAll(".menu-List_M.active").forEach(function (openList) {
+      openList.classList.remove("active");
+    });
+
+    // 3. 현재 클릭한 항목 열기
+    menuList.classList.add("active");
+  });
+});
+
 
 //=============================================================
 
@@ -187,6 +263,47 @@ function checkImgViewerPosition() {
 window.addEventListener("scroll", checkImgViewerPosition);
 
 //=================================
+
+
+
+
+
+
+
+
+
+
+
+//=================sec3================
+
+const imgBoxes = document.querySelectorAll(".imgBox");
+
+window.addEventListener("scroll", () => {
+  const centerY = window.innerHeight / 2;
+
+  imgBoxes.forEach((box) => {
+    const rect = box.getBoundingClientRect();
+    const boxCenter = rect.top + rect.height / 2;
+
+    if (boxCenter < centerY) {
+      box.style.transform = "scale(1.3)";
+      box.style.transition = "transform 0.3s ease"; // 부드럽게 전환
+    } else {
+      box.style.transform = "scale(1)";
+      box.style.transition = "transform 0.3s ease";
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
 var swiper = new Swiper(".mySwiper1", {
   spaceBetween: 30,
   effect: "fade",
@@ -196,3 +313,6 @@ var swiper = new Swiper(".mySwiper1", {
     clickable: true,
   },
 });
+
+window.scrollTo({ top: 0, behavior: 'smooth' }); // 이렇게 해야 작동함
+

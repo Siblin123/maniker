@@ -2,26 +2,42 @@
 @import 'Variable.scss';
 
 @font-face {
-    font-family: 'ONE-Mobile-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'ONE-Mobile-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-*{
-  font-family: 'ONE-Mobile-Regular';
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+* {
+  font-family: 'Pretendard-Regular-EN', 'ONE-Mobile-Regular-KR', sans-serif;
 }
 
 
 //-----------------------------------------
 
 header {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   display: flex;
   padding: 20px 0;
   z-index: 1000;
+  max-height: 100%;
+  transition: .3s;
+
+  &.ScrollDown {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
 
   .logo {
 
@@ -121,8 +137,10 @@ header {
   .gnb {
 
     &.active {
-      i.fa-bars {
-        color: black;
+
+      .fa-bars,
+      .fa-xmark {
+        color: $mainColor;
         position: relative;
       }
 
@@ -170,7 +188,7 @@ header {
           border-radius: 21px;
           padding: 10px 15px;
 
-          color: rgb(255, 0, 0);
+          color: white;
 
           i {
             // 스타일
@@ -184,7 +202,7 @@ header {
     flex: 1;
     position: absolute;
     right: 65px;
-    top: 20px;
+    top: 0px;
     color: white;
 
     i {
@@ -261,19 +279,30 @@ header {
   }
 }
 
+.allmenu_M {
+  display: none;
+}
 
 .main-visual {
+  height: 980px;
+  width: 100%;
+  object-fit: cover;
+
   video {
     // 스타일
     position: relative;
     z-index: 1;
+    height: 100%;
   }
 }
 
 //------------------------------------------------------------
 
 .sec1 {
-  height: 100vh;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h2 {
     font-size: 4.4vw;
@@ -564,51 +593,49 @@ header {
       ul {
         display: flex;
         gap: 10px;
-        transform: translate(-100%, 10px); //-100%마다 다음 그림
+        transform: none;
 
-        li {}
+
       }
     }
 
 
 
-    .textViewer {
+.textViewer {
+  width: 695px;
+  margin: auto;
+  overflow: hidden; // 스크롤 제거
+  color: white;
+  text-align: center;
 
-      color: white;
-      text-align: center;
+  ul {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden; // 가로 스크롤 제거
+    padding: 0; // 가운데 정렬용 패딩 제거
 
-      ul {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto; // 넘치면 가로 스크롤
-        scroll-behavior: smooth; // 스크롤 부드럽게
-        padding-left: calc(50% - 695px / 2); // li의 width: 695px
-        padding-right: calc(50% - 695px / 2); // li의 width: 695px
+    li {
+      flex-shrink: 0;
+      width: 100%;
+      padding: 0;
 
-        li {
-          flex-shrink: 0;
-          padding: 0 50px;
-          width: 695px;
+      .title {
+        margin-top: 20px;
+        font-weight: 800;
+        font-size: 3.6vw;
+      }
 
-          .title {
-            margin-top: 20px;
-            font-weight: 800;
-            font-size: 3.6vw;
-            margin-top: 20px;
-          }
+      p {
+        margin: 30px 0px 20px;
+      }
 
-          p {
-            margin: 30px 0px 20px;
-          }
-
-          .moreBtn {
-            margin: auto;
-            // 스타일
-            @include VIEW-MORE-BTN(rgb(255, 255, 255), white, rgba(255, 255, 255, 0)) // 스타일
-          }
-        }
+      .moreBtn {
+        margin: auto;
+        @include VIEW-MORE-BTN(rgb(255, 255, 255), white, rgba(255, 255, 255, 0))
       }
     }
+  }
+}
   }
 }
 
@@ -705,6 +732,7 @@ header {
 }
 
 footer {
+  width: 100vw;
   background-color: #f6f6f6;
   padding: 20px 5%;
 
@@ -760,24 +788,30 @@ footer {
 
       .info-warps {
         display: flex;
+
+        p {
+          color: #555;
+        }
+      }
+
+      .copy {
+        flex: 3;
+        align-self: flex-end;
+        text-align: right;
+        color: #555;
       }
     }
 
-    .copy {
-      flex: 3;
-      align-self: flex-end;
-      text-align: right;
-    }
+
   }
 }
 
 @media (max-width: 500px) {
   header {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     display: flex;
-    padding: 20px 0;
     z-index: 1000;
 
     .logo {
@@ -879,8 +913,10 @@ footer {
     .gnb {
 
       &.active {
-        i.fa-bars {
-          color: black;
+
+        .fa-bars,
+        .fa-xmark {
+          color: $mainColor;
           position: relative;
         }
 
@@ -906,7 +942,6 @@ footer {
           &:nth-child(1) {
             a {
               background-color: red;
-              border: 1px solid #ff0000;
               color: white;
               font-size: 14px;
             }
@@ -928,7 +963,7 @@ footer {
             border-radius: 21px;
             padding: 10px 15px;
 
-            color: rgb(255, 0, 0);
+            color: white;
 
             i {
               // 스타일
@@ -942,7 +977,7 @@ footer {
       flex: 1;
       position: absolute;
       right: 20px;
-      top: 20px;
+      top: 0px;
       color: white;
 
       i {
@@ -963,6 +998,10 @@ footer {
     padding: 120px 3.125vw 30px;
     text-align: center;
     z-index: 10;
+
+    .active {
+      display: none !important;
+    }
 
     &:not(.active) {
       display: none;
@@ -1019,8 +1058,71 @@ footer {
     }
   }
 
+  .allmenu_M {
+    background-color: white;
+    text-align: center;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    padding-top: 100px;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 120px;
+
+    &:not(.active) {
+      display: none;
+    }
+
+    .menu-title_M {
+
+      width: 70%;
+      padding: 10px 10px;
+      border-radius: 100px;
+      background-color: #e5e5e5;
+      font-weight: bold;
+      font-size: 18px;
+      transition: .3s;
+
+      &:hover {
+        background-color: $mainColor;
+        color: white;
+      }
+    }
+
+    .menu-List_M {
+      max-height: 0;
+      overflow: hidden;
+      transition: .5s;
+
+      &.active {
+        max-height: 50%;
+      }
+
+      ul {
+
+        li {
+          a {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+
+            &:hover {
+              color: $mainColor;
+            }
+          }
+        }
+      }
+    }
+  }
 
   .main-visual {
+    height: 980px;
+
     video {
       // 스타일
       position: relative;
@@ -1039,8 +1141,9 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     h2 {
-      font-size:35px;
+      font-size: 35px;
       text-align: center;
     }
 
@@ -1071,6 +1174,7 @@ footer {
   .sec2 {
     display: flex;
     flex-direction: column;
+
     .bg {
       position: absolute;
 
@@ -1091,6 +1195,7 @@ footer {
 
     .swiper {
       width: 100vw;
+
       .swiper-pagination {
         position: absolute;
         top: 60%;
@@ -1177,12 +1282,14 @@ footer {
       padding-bottom: 200px;
       display: flex;
       flex-direction: column;
+
       .Left {
         width: 100vw;
 
         .LeftWarps {
           position: sticky;
           top: 100px;
+          margin-bottom: 100px;
 
           h2,
           h3 {
@@ -1201,6 +1308,7 @@ footer {
             color: #111;
             font-weight: bold;
             line-height: 1.2em;
+            width: 100vw;
           }
 
           .moreBtn {
@@ -1212,15 +1320,27 @@ footer {
       }
 
       .Right {
-        width: 55vw;
+        width: 100%;
         display: flex;
+        flex-direction: column;
 
         .L_List {
-          margin-right: 100px;
+          margin-right: 0px;
+
+          .imgBox {
+            width: 80%;
+
+
+          }
         }
 
         .R_List {
-          margin-top: 300px;
+          margin-top: 0px;
+
+          .imgBox {
+            width: 80%;
+
+          }
         }
 
         ul {
@@ -1228,8 +1348,17 @@ footer {
           flex-direction: column;
 
           li {
-            max-width: 130px;
+            max-width: 300%;
             margin-bottom: 70px;
+
+            &:nth-child(odd) {
+              text-align: right;
+
+              >* {
+                display: inline-block; // 글, 이미지 등
+              }
+
+            }
 
             img {
               // 스타일
@@ -1262,7 +1391,7 @@ footer {
   }
 
   .sec4 {
-    height: 900px;
+    height: 100vh;
     position: relative;
     background-color: rgba(255, 255, 255, 0);
 
@@ -1274,6 +1403,9 @@ footer {
         top: 0;
         left: 0;
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: right;
         z-index: -1;
       }
     }
@@ -1282,24 +1414,36 @@ footer {
 
     .textWarps {
       width: 90%;
+      height: 100%;
       margin: 100px auto;
       font-size: 9vw;
       color: #fff;
       font-weight: 500;
-      line-height: 0.9em;
+      line-height: 1em;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-      span:first-of-type {}
+      span:first-of-type {
+        font-size: 60px;
+        display: block;
+        margin-top: 0px;
+      }
 
       span:last-of-type {
-        font-size: 42px;
+        font-size: 50px;
         font-weight: 600;
+        margin-top: 100px;
+        display: block;
       }
+
+
     }
   }
 
   .sec5 {
-    padding: 235px 0px 0px;
-    height: 160vh;
+    height: 175vh;
     background: url(/img/sec5_bg1.jpg) no-repeat center 700px;
     background-color: white;
 
@@ -1325,6 +1469,8 @@ footer {
 
 
     .contant-warps {
+      height: 100vh;
+
       .imgViewer {
         border-radius: 15px;
         width: 430px;
@@ -1351,15 +1497,16 @@ footer {
         ul {
           display: flex;
           flex-wrap: nowrap;
-          overflow-x: auto; // 넘치면 가로 스크롤
-          scroll-behavior: smooth; // 스크롤 부드럽게
-          padding-left: calc(50% - 695px / 2); // li의 width: 695px
-          padding-right: calc(50% - 695px / 2); // li의 width: 695px
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          padding-left: calc(50% - 695px / 2);
+          padding-right: calc(50% - 695px / 2);
+          margin-top: 67px;
 
           li {
             flex-shrink: 0;
             padding: 0 50px;
-            width: 695px;
+            width: 100%;
 
             .title {
               margin-top: 20px;
@@ -1385,10 +1532,12 @@ footer {
 
   .sec6 {
     display: flex;
+    flex-direction: column;
     padding: 175px 10%;
 
     .Left {
-      width: 50vw;
+      width: 100%;
+      margin-bottom: 100px;
 
       h2 {
         // 스타일
@@ -1398,7 +1547,8 @@ footer {
 
       h3 {
         margin: 40px 0 35px;
-        font-size: 60px;
+        font-size: 40px;
+        width: 100%;
         color: #111;
         font-weight: bold;
         line-height: 1.2em;
@@ -1411,7 +1561,7 @@ footer {
     }
 
     .Right {
-      width: 50vw;
+      width: 100%;
 
       ul {
         li {
@@ -1425,6 +1575,7 @@ footer {
             display: flex;
             align-items: center;
             border-bottom: 1px solid #b2b2b2;
+            width: 100%;
 
             .date {
               color: #7f7f7f;
@@ -1432,17 +1583,19 @@ footer {
               flex-direction: column;
 
               .day {
-                font-size: 56px;
+                font-size: 40px;
                 line-height: 1em;
                 text-shadow: 1px 1px 0 #7f7f7f, -1px 1px 0 #7f7f7f, -1px -1px 0 #7f7f7f, 1px -1px 0 #7f7f7f;
                 color: #fff;
               }
 
-              .ym {}
+              .ym {
+                font-size: 12px;
+              }
             }
 
             .cate {
-              font-size: 17px;
+              font-size: 16px;
               margin: 0 30px;
               color: $mainColor;
             }
@@ -1454,7 +1607,7 @@ footer {
 
               .title {
                 // 스타일
-                font-size: 24px;
+                font-size: 21px;
               }
 
               .text {
@@ -1463,7 +1616,7 @@ footer {
                 text-overflow: ellipsis;
                 display: block;
                 width: 100%;
-
+                display: none;
                 margin-top: 10px;
                 font-size: 18px;
                 color: #555;
@@ -1490,12 +1643,14 @@ footer {
         flex: 1;
 
         img {
+          width: 58px;
+          height: 60px;
           // 스타일
         }
       }
 
       .info {
-        flex: 6;
+        flex: 9;
 
         div {
           // 스타일
@@ -1506,39 +1661,47 @@ footer {
         }
 
         dl {
+          display: flex;
+          align-items: flex-start;
+          width: 100%;
+          flex: 1;
+
+
           dt {
             display: inline-block;
-            font-size: 17px;
+            font-size: 11px;
             color: #555;
             // 스타일
           }
 
           dd {
             display: inline-block;
-            font-size: 17px;
+            font-size: 11px;
             color: #555;
+            width: 100%;
             // 스타일
           }
         }
 
         .bar {
-          display: inline-block;
           margin: 0 10px;
           color: #555;
-
+          margin: 0;
           // 스타일
         }
 
         .info-warps {
-          display: flex;
+
+          font-size: 11px;
+        }
+
+        .copy {
+          text-align: left;
+          font-size: 11px;
+          color: #555;
         }
       }
 
-      .copy {
-        flex: 3;
-        align-self: flex-end;
-        text-align: right;
-      }
     }
   }
 

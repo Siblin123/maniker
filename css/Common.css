@@ -15,8 +15,6 @@ li {
 }
 
 html {
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-y: scroll;
   overflow-x: hidden;
