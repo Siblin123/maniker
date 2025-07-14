@@ -70,10 +70,13 @@
 ***전체 서브 페이지***
 ![Image](https://github.com/user-attachments/assets/204d68d0-c09c-4d73-995e-83b3a24caf55)
 ![Image](https://github.com/user-attachments/assets/fcec399a-ecb3-4610-8f48-8126c2bd061f)
-***concert 부분***
 
+***섹션1~2***
+![Image](https://github.com/user-attachments/assets/b2da556c-4754-42ed-9335-02764d839c44)
+
+***섹션3~4 부분***
 ![Image](https://github.com/user-attachments/assets/aa2d1444-4607-4039-b04f-474f396f55c8)
-***Mpyc Academy 부분***
+
 
 ***notice 및 footer***
 <img width="1909" height="249" alt="Image" src="https://github.com/user-attachments/assets/82598bd7-dc0e-4753-aea7-bca75185d460" />
