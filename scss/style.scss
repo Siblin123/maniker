@@ -32,7 +32,6 @@ header {
   z-index: 1000;
   max-height: 100%;
   transition: .3s;
-
   &.ScrollDown {
     max-height: 0;
     overflow: hidden;
