@@ -140,7 +140,7 @@ header {
 
       .fa-bars,
       .fa-xmark {
-        color: $mainColor;
+        color: $mainColor !important;
         position: relative;
       }
 
@@ -477,10 +477,23 @@ header {
 
       .L_List {
         margin-right: 100px;
+
+        .imgBox {
+          width: 100%;
+          overflow: hidden;
+
+        }
       }
 
       .R_List {
         margin-top: 300px;
+
+        .imgBox {
+          width: 100%;
+          overflow: hidden;
+
+
+        }
       }
 
       ul {
@@ -601,41 +614,41 @@ header {
 
 
 
-.textViewer {
-  width: 695px;
-  margin: auto;
-  overflow: hidden; // 스크롤 제거
-  color: white;
-  text-align: center;
+    .textViewer {
+      width: 695px;
+      margin: auto;
+      overflow: hidden; // 스크롤 제거
+      color: white;
+      text-align: center;
 
-  ul {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: hidden; // 가로 스크롤 제거
-    padding: 0; // 가운데 정렬용 패딩 제거
+      ul {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden; // 가로 스크롤 제거
+        padding: 0; // 가운데 정렬용 패딩 제거
 
-    li {
-      flex-shrink: 0;
-      width: 100%;
-      padding: 0;
+        li {
+          flex-shrink: 0;
+          width: 100%;
+          padding: 0;
 
-      .title {
-        margin-top: 20px;
-        font-weight: 800;
-        font-size: 3.6vw;
-      }
+          .title {
+            margin-top: 20px;
+            font-weight: 800;
+            font-size: 3.6vw;
+          }
 
-      p {
-        margin: 30px 0px 20px;
-      }
+          p {
+            margin: 30px 0px 20px;
+          }
 
-      .moreBtn {
-        margin: auto;
-        @include VIEW-MORE-BTN(rgb(255, 255, 255), white, rgba(255, 255, 255, 0))
+          .moreBtn {
+            margin: auto;
+            @include VIEW-MORE-BTN(rgb(255, 255, 255), white, rgba(255, 255, 255, 0))
+          }
+        }
       }
     }
-  }
-}
   }
 }
 
@@ -1446,6 +1459,7 @@ footer {
     height: 175vh;
     background: url(/img/sec5_bg1.jpg) no-repeat center 700px;
     background-color: white;
+    width: 100%;
 
     .textWarps {
       text-align: center;
@@ -1477,19 +1491,20 @@ footer {
         height: 547px;
         overflow: hidden;
         margin: auto;
-
         ul {
           display: flex;
           gap: 10px;
           transform: translate(-100%, 10px); //-100%마다 다음 그림
-
-          li {}
+        
+          li {
+          }
         }
       }
 
 
 
       .textViewer {
+        width: 100%;
 
         color: white;
         text-align: center;
@@ -1499,13 +1514,13 @@ footer {
           flex-wrap: nowrap;
           overflow-x: auto;
           scroll-behavior: smooth;
+          overflow: hidden; // 스크롤 제거
           padding-left: calc(50% - 695px / 2);
           padding-right: calc(50% - 695px / 2);
           margin-top: 67px;
 
           li {
             flex-shrink: 0;
-            padding: 0 50px;
             width: 100%;
 
             .title {

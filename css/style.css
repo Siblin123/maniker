@@ -157,7 +157,7 @@ header .gnb {
 }
 header .gnb.active .fa-bars,
 header .gnb.active .fa-xmark {
-  color: #ec1c24;
+  color: #ec1c24 !important;
   position: relative;
 }
 header .gnb.active a.Maniker-Mall {
@@ -451,8 +451,16 @@ header .service_var {
 .sec3 .inner .Right .L_List {
   margin-right: 100px;
 }
+.sec3 .inner .Right .L_List .imgBox {
+  width: 100%;
+  overflow: hidden;
+}
 .sec3 .inner .Right .R_List {
   margin-top: 300px;
+}
+.sec3 .inner .Right .R_List .imgBox {
+  width: 100%;
+  overflow: hidden;
 }
 .sec3 .inner .Right ul {
   display: -webkit-box;
@@ -1322,6 +1330,7 @@ footer .footer-warps .info .copy {
     height: 175vh;
     background: url(/img/sec5_bg1.jpg) no-repeat center 700px;
     background-color: white;
+    width: 100%;
   }
   .sec5 .textWarps {
     text-align: center;
@@ -1356,6 +1365,7 @@ footer .footer-warps .info .copy {
             transform: translate(-100%, 10px);
   }
   .sec5 .contant-warps .textViewer {
+    width: 100%;
     color: white;
     text-align: center;
   }
@@ -1367,6 +1377,7 @@ footer .footer-warps .info .copy {
         flex-wrap: nowrap;
     overflow-x: auto;
     scroll-behavior: smooth;
+    overflow: hidden;
     padding-left: calc(50% - 347.5px);
     padding-right: calc(50% - 347.5px);
     margin-top: 67px;
@@ -1374,7 +1385,6 @@ footer .footer-warps .info .copy {
   .sec5 .contant-warps .textViewer ul li {
     -ms-flex-negative: 0;
         flex-shrink: 0;
-    padding: 0 50px;
     width: 100%;
   }
   .sec5 .contant-warps .textViewer ul li .title {

@@ -4,6 +4,8 @@
 let header = document.querySelector("header")
 let logo = document.querySelector(".logo >a >img");
 let navli = document.querySelectorAll("nav ul li ")
+
+console.log(navli);
 let navDetail = document.querySelector(".navDetail")
 let ESG = document.querySelector(".ESG")
 let service_var = document.querySelector(".service_var")
@@ -107,18 +109,28 @@ window.addEventListener("scroll", function () {
     // 최상단
     header.style.backgroundColor = "#ffffff00";
     logo.src = "/img/logo1.png";
-    ESG.style.color="white";
-    ESG.style.borderColor= "white";
-    hamburger.style.color="white";
-    service_var.style.color="white";
-  } else {
-    // 최상단 아님
-    header.style.backgroundColor = "#ffffff";
-    logo.src = "/img/logo2.png";
-    ESG.style.color="black";
-    ESG.style.borderColor= "black";
-    hamburger.style.color="black";
-    service_var.style.color="black";
+    ESG.style.color = "white";
+    ESG.style.borderColor = "white";
+    hamburger.style.color = "white";
+    service_var.style.color = "white";
+
+  navli.forEach(li => {
+    li.querySelector("a").style.color = "white";
+    console.log("@");
+  });
+} else {
+  // 최상단 아님
+  header.style.backgroundColor = "#ffffff";
+  logo.src = "/img/logo2.png";
+  ESG.style.color = "black";
+  ESG.style.borderColor = "black";
+  hamburger.style.color = "black";
+  service_var.style.color = "black";
+  
+    navli.forEach(li => {
+      li.querySelector("a").style.color = "black";
+    });
+
   }
 
 
@@ -276,7 +288,7 @@ window.addEventListener("scroll", checkImgViewerPosition);
 
 //=================sec3================
 
-const imgBoxes = document.querySelectorAll(".imgBox");
+const imgBoxes = document.querySelectorAll(".imgBox img");
 
 window.addEventListener("scroll", () => {
   const centerY = window.innerHeight / 2;
@@ -298,7 +310,28 @@ window.addEventListener("scroll", () => {
 
 
 
+const scrollContainer = document.querySelector(".smooth-scroll");
+let currentScroll = 0;
+let targetScroll = 0;
+let ease = 0.2;  // 부드러움 정도
 
+function smoothScroll() {
+  targetScroll = window.pageYOffset;
+  currentScroll += (targetScroll - currentScroll) * ease;
+  scrollContainer.style.transform = `translateY(-${currentScroll}px)`;
+  requestAnimationFrame(smoothScroll);
+}
+
+function setBodyHeight() {
+  document.body.style.height = scrollContainer.getBoundingClientRect().height + "px";
+}
+
+window.addEventListener("load", () => {
+  setBodyHeight();
+  smoothScroll();
+});
+
+window.addEventListener("resize", setBodyHeight);
 
 
 
@@ -313,6 +346,4 @@ var swiper = new Swiper(".mySwiper1", {
     clickable: true,
   },
 });
-
-window.scrollTo({ top: 0, behavior: 'smooth' }); // 이렇게 해야 작동함
 
