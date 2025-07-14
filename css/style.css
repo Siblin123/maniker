@@ -521,7 +521,7 @@ header .service_var {
 .sec5 {
   padding: 235px 0px 0px;
   height: 160vh;
-  background: url(./img/sec5_bg1.jpg) no-repeat center 700px;
+  background: url(../img/sec5_bg1.jpg) no-repeat center 700px;
   background-color: white;
 }
 .sec5 .textWarps {
