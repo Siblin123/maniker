@@ -1328,7 +1328,7 @@ footer .footer-warps .info .copy {
   }
   .sec5 {
     height: 175vh;
-    background: url(./img/sec5_bg1.jpg) no-repeat center 700px;
+    background: url(../img/sec5_bg1.jpg) no-repeat center 700px;
     background-color: white;
     width: 100%;
   }
