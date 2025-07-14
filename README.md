@@ -80,6 +80,7 @@
 
 
 ***notice 및 footer***
+<img width="1898" height="784" alt="Image" src="https://github.com/user-attachments/assets/478aa595-c8ad-4158-bbba-759b04a2e256" />
 <img width="1909" height="249" alt="Image" src="https://github.com/user-attachments/assets/82598bd7-dc0e-4753-aea7-bca75185d460" />
  ---
 ### 전체 페이지 스크린샷
