@@ -64,6 +64,7 @@
 <img width="1903" height="203" alt="Image" src="https://github.com/user-attachments/assets/4736148c-1641-4355-aaa2-1ee8ce90e37e" />
 <img width="1899" height="916" alt="Image" src="https://github.com/user-attachments/assets/c62cbaa4-8ef2-4450-9975-67897a807752" />
 
+***호버 이벤트***
 ![Image](https://github.com/user-attachments/assets/08bbb53a-9f2b-41e0-88cf-8286ff1665f3) 
 
 ***전체 서브 페이지***
@@ -75,6 +76,7 @@
 ***Mpyc Academy 부분***
 
 ***notice 및 footer***
+<img width="1909" height="249" alt="Image" src="https://github.com/user-attachments/assets/82598bd7-dc0e-4753-aea7-bca75185d460" />
  ---
 ### 전체 페이지 스크린샷
 
