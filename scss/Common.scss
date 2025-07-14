@@ -17,14 +17,9 @@ li {
 }
 
 html {
-  height: 100%;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-
-}
-
-.smooth-scroll {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
 }
 

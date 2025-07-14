@@ -75,7 +75,7 @@ function openHeader(li) {
 
   // 여기에 호버 시 실행할 코드 작성
   header.style.backgroundColor = "white";
-  logo.src = "/img/logo2.png";
+  logo.src = "./img/logo2.png";
   navDetail.style.maxHeight = "80px";
 
 }
@@ -108,7 +108,7 @@ window.addEventListener("scroll", function () {
   if (window.scrollY === 0) {
     // 최상단
     header.style.backgroundColor = "#ffffff00";
-    logo.src = "/img/logo1.png";
+    logo.src = "./img/logo1.png";
     ESG.style.color = "white";
     ESG.style.borderColor = "white";
     hamburger.style.color = "white";
@@ -121,7 +121,7 @@ window.addEventListener("scroll", function () {
 } else {
   // 최상단 아님
   header.style.backgroundColor = "#ffffff";
-  logo.src = "/img/logo2.png";
+  logo.src = "./img/logo2.png";
   ESG.style.color = "black";
   ESG.style.borderColor = "black";
   hamburger.style.color = "black";
@@ -172,11 +172,11 @@ hamburger_Parent.addEventListener("click", function (e) {
   if (hamburger.classList.contains("fa-bars")) {
     hamburger.classList.remove("fa-bars");
     hamburger.classList.add("fa-xmark");
-    logo.src = "/img/logo2.png";
+    logo.src = "./img/logo2.png";
   } else {
     hamburger.classList.remove("fa-xmark");
     hamburger.classList.add("fa-bars");
-    logo.src = "/img/logo1.png";
+    logo.src = "./img/logo1.png";
   }
 });
 
