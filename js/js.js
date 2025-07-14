@@ -95,7 +95,7 @@ function closeHeader() {
 
   // 여기에 호버 시 실행할 코드 작성
   header.style.backgroundColor = "#ffffff00";
-  logo.src = "/img/logo1.png";
+  logo.src = "./img/logo1.png";
   navDetail.style.maxHeight = 0;
 
 }
