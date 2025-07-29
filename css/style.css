@@ -179,7 +179,7 @@ header .gnb ul {
           justify-content: center;
 }
 header .gnb ul li {
-  margin-right: 25px;
+  margin-right: 20px;
 }
 header .gnb ul li:nth-child(1) a {
   background-color: red;
